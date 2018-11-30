@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="qxa3tV4ys42SMrQTp-M68srdRzwXMxqdWXmqbTkvOfo" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Englebert" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Lazy Grazer</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <nav id="sidebar" class="">
+            <div class="sidebar-header">
+                <img src="assets/images/lazygrazerlogo.png">
+            </div>
+            <div class="sidebarText">
+                <ul class="list-unstyled CTAs">
+                    <li>
+                        <h5>Enter ingredients:</h5>
+                    </li>
+                    <br>
+                    <li>
+                        <div class="input-group mb-3">
+                            <input id="targetRecipe" type="text" class="form-control" placeholder="cheese, onions, salt"
+                                aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        </div>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-dark addRecipe">Find a Meal</button>
+                    </li>
+                    <br>
+                    <li id="val-text">
+
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-dark" id="btnchoose">Choose From Categories</button>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-dark" id="btnsearch">Search Array</button>
+                    </li>
+                    <div id="searcharray"></div>
+                    <div class="categories">
+                        <li>
+                            <div class="" id="dairy" data-state="click" name="dairy">
+                                <img src="assets/images/Dairy.png" style="height:40px; width:40px; margin-right: 10px; "
+                                    alt="" class="chooseitem">
+                                Dairy
+                                <img src="assets/images/a2.svg" style="height:25px; width:25px; margin-top: 10px;" alt=""
+                                    class="arrow">
+                                <hr>
+                            </div>
+                            <div class="dairy"></div>
+                        </li>
+                        <li>
+                            <div class="" id="vegetables" data-state="click" name="vegetables">
+                                <img src="assets/images/Vegetables.png" style="height:40px; width:40px; margin-right: 10px; "
+                                    alt="" class="chooseitem">
+                                Vegetables
+                                <img src="assets/images/a2.svg" style="height:25px; width:25px; margin-top: 10px;" alt=""
+                                    class="arrow">
+                                <hr>
+                            </div>
+                            <div class="vegetables"></div>
+                        </li>
+                        <li>
+                            <div class="" id="meats" data-state="click" name="meats">
+                                <img src="assets/images/Meats.png" style="height:40px; width:40px; margin-right: 10px; "
+                                    alt="" class="chooseitem">
+                                Meats
+                                <img src="assets/images/a2.svg" style="height:25px; width:25px; margin-top: 10px;" alt=""
+                                    class="arrow">
+                                <hr>
+                            </div>
+                            <div class="meats"></div>
+                        </li>
+                        <li>
+                            <div class="" id="sauces" data-state="click" name="sauces">
+                                <img src="assets/images/Sauces.png" style="height:40px; width:40px; margin-right: 10px; "
+                                    alt="" class="chooseitem">
+                                Sauces
+                                <img src="assets/images/a2.svg" style="height:25px; width:25px; margin-top: 10px;" alt=""
+                                    class="arrow">
+                                <hr>
+                            </div>
+                            <div class="sauces"></div>
+                        </li>
+                    </div>
+
+
+                </ul>
+            </div>
+
+        </nav>
+
+        <!-- 
+            <button type="button" class="btn btn-primary addRecipe">Search Meal</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="container recipeList"> -->
+
+
+        <!-- Sidebar ends -->
+        <!-- Toggle Button and Title -->
+
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-dark">
+                        <i class="fas fa-utensils fa-align-left"></i>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                    <h2 id="navTitle">LazyGrazer</h2>
+                </div>
+            </nav>
+
+            <div class="container">
+                <section id="portfolio" class="portfolio">
+                    <div class="container">
+                        <div class="row">
+                            <div class="portfolio_content text-center recipeList" data-wow-duration="5s">
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </section>
+            <div class="container recipeInfo">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#recipe">Recipe List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#videos">How-to Videos</a>
+                    </li>
+
+                </ul>
+
+
+
+                <div class="tab-content recipeContent">
+                    <div id="recipe" class="tab-pane fadein active">
+                        <!-- <h3>Recipe List</h3> -->
+                        <div class="container article">
+
+
+                        </div>
+                    </div>
+                    <div id="videos" class="container tab-pane fade">
+                        <!-- <h3>How-to Videos</h3> -->
+                        <div class="container vids"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+    <!--plot.ly CDN-->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <script src="assets/js/youtube.js"></script>
+    <script src="assets/js/recipe.js"></script>
+    <script src="assets/js/plotly.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=onClientLoad" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
